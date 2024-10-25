@@ -11,14 +11,10 @@ export const logger = /* #__PURE__ */ createLogger(__package_name__);
 const env = /* #__PURE__ */ (() => {
   const devConfig = {
     dbPath: './db',
-    tokenSecret: 'DEV_SECRET',
     host: '0.0.0.0',
     port: 8000,
     botToken: 'BOT_TOKEN',
-    botUsername: 'BOT_USERNAME',
-    botFirstName: 'BOT_FIRST_NAME',
-    dropPendingUpdates: '1',
-    botAdminChatId: 'ADMIN_CHAT_ID',
+    accessToken: 'ADMIN_TOKEN',
   } as const;
 
   const env_ = {
@@ -35,6 +31,8 @@ const env = /* #__PURE__ */ (() => {
 })();
 
 export const config = {
+  accessToken: env.accessToken!,
+
   nanotronApiServer: {
     host: env.host!,
     port: +env.port!,
@@ -46,7 +44,7 @@ export const config = {
       rootPath: env.dbPath!,
     } as AlwatrNitrobaseConfig,
 
-    categoriesCollection: {
+    categoryCollection: {
       name: 'categories',
       region: Region.Managers,
       type: StoreFileType.Collection,

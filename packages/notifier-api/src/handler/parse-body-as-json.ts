@@ -4,9 +4,7 @@ import {logger} from '../config.js';
 
 import type {NanotronClientRequest} from 'alwatr/nanotron';
 
-export async function parseBodyAsJson(
-  this: NanotronClientRequest<{body?: JsonObject}>,
-): Promise<void> {
+export async function parseBodyAsJson(this: NanotronClientRequest<{body?: JsonObject}>): Promise<void> {
   const bodyBuffer = await this.getBodyRaw();
   if (bodyBuffer.length === 0) {
     logger.error('parseBodyAsJson', 'body_required');
