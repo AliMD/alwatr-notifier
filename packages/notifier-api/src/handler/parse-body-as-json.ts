@@ -5,7 +5,7 @@ import {logger} from '../config.js';
 import type {NanotronClientRequest} from 'alwatr/nanotron';
 
 export async function parseBodyAsJson(
-  this: NanotronClientRequest<{body: DictionaryOpt}>,
+  this: NanotronClientRequest<{body?: JsonObject}>,
 ): Promise<void> {
   const bodyBuffer = await this.getBodyRaw();
   if (bodyBuffer.length === 0) {
@@ -20,7 +20,7 @@ export async function parseBodyAsJson(
   }
 
   try {
-    this.sharedMeta.body = JSON.parse(bodyBuffer.toString()) as DictionaryOpt;
+    this.sharedMeta.body = JSON.parse(bodyBuffer.toString()) as JsonObject;
   }
   catch (error) {
     logger.error('parseBodyAsJson', 'invalid_body_json', error);
