@@ -1,7 +1,7 @@
 import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
 import {config, logger} from '../config.js';
-import {alwatrNitrobase} from '../lib/nitrobase.js';
+import {nitrobase} from '../lib/nitrobase.js';
 
 import type {Category, NotifyOption} from '../type.js';
 
@@ -30,7 +30,7 @@ export async function notifyValidation(this: NanotronClientRequest<{body: JsonOb
     return;
   }
 
-  const categoriesCollection = await alwatrNitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
+  const categoriesCollection = await nitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
 
   if (categoriesCollection.hasItem(categoryId) === false) {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;

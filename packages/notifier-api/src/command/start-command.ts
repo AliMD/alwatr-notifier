@@ -1,7 +1,7 @@
 import {config, logger} from '../config.js';
 import {bot} from '../lib/bot.js';
 import {message} from '../lib/message.js';
-import {alwatrNitrobase} from '../lib/nitrobase.js';
+import {nitrobase} from '../lib/nitrobase.js';
 
 import type {Category} from '../type.js';
 
@@ -31,7 +31,7 @@ bot.command(
         return;
       }
 
-      const categoriesCollection = await alwatrNitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
+      const categoriesCollection = await nitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
 
       if (categoriesCollection.hasItem(categoryId) === false) {
         logger.incident?.('startCommand', 'category_not_found', {categoryId, from: ctx.from, chat: ctx.chat});

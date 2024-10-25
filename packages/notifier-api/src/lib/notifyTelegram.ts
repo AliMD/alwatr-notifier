@@ -1,6 +1,6 @@
 import {config, logger} from '../config.js';
 import {bot} from './bot.js';
-import {alwatrNitrobase} from './nitrobase.js';
+import {nitrobase} from './nitrobase.js';
 
 import type {Category, NotifyOption} from '../type.js';
 import type {GrammyError} from 'grammy';
@@ -10,7 +10,7 @@ import type {GrammyError} from 'grammy';
  */
 export async function notifyTelegram(option: NotifyOption): Promise<void> {
   logger.logMethodArgs?.('notifyTelegram', option);
-  const categoriesCollection = await alwatrNitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
+  const categoriesCollection = await nitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
   const members = categoriesCollection.getItemData(option.categoryId).members;
   for (let i = members.length - 1; i >= 0; i--) {
     const member = members[i];
