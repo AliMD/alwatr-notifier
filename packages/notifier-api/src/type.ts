@@ -17,3 +17,8 @@ export type NotifyOption = {
   message: string;
   markdown: boolean;
 };
+
+export type AddNewCategoryOption = {
+  title: string;
+  adminToken: string;
+}
