@@ -1,16 +1,19 @@
-import type {Chat} from 'grammy/types';
+export type Category = {
+  title: string;
+  members: Member[];
+};
 
-declare global {
-  type CategoryItem = {
-    categoryName: string;
-    memberList: MemberItem[];
-  }
+export type Member = {
+  id: number;
+  type: 'private' | 'group' | 'supergroup' | 'channel';
+  title?: string;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
+};
 
-  type MemberItem = {
-    id: string;
-    type: Chat['type'],
-    username?: Chat['username'];
-    first_name?: Chat['first_name'];
-    last_name?: Chat['last_name'];
-  }
-}
+export type NotifyOption = {
+  categoryId: string;
+  message: string;
+  markdown: boolean;
+};

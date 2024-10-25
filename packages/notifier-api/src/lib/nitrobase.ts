@@ -1,5 +1,5 @@
 import {AlwatrNitrobase} from 'alwatr/nitrobase';
 
-import {config} from './config.js';
+import {config} from '../config.js';
 
-export const alwatrNitrobase = new AlwatrNitrobase(config.nitrobase.config);
+export const nitrobase = new AlwatrNitrobase(config.nitrobase.config);
