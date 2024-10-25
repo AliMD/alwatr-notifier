@@ -1,41 +1,51 @@
+import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
+
 import {config, logger} from '../config.js';
-import {hashGenerator} from '../hash.js';
-import {alwatrNitrobase} from '../nitrobase.js';
+import {alwatrNitrobase} from '../lib/nitrobase.js';
 
-import type {ErrorResponse, NanotronClientRequest} from 'alwatr/nanotron';
+import type {Category, NotifyOption} from '../type.js';
 
-export async function validateCategoryId<T extends DictionaryOpt = DictionaryOpt>(
-  this: NanotronClientRequest<DictionaryOpt<T>>,
-): Promise<void> {
-  try {
-    logger.logMethodArgs?.('validateCategoryId', {body: this.sharedMeta.body});
+export async function notifyValidation(this: NanotronClientRequest<{body: JsonObject}>): Promise<void> {
+  logger.logMethodArgs?.('notifyValidation', {body: this.sharedMeta.body});
 
-    if (this.sharedMeta.body === undefined) {
-      this.serverResponse.replyErrorResponse({
-        ok: false,
-        errorCode: 'invalid_request_payload',
-        errorMessage: 'Invalid request payload.'
-      });
-      return;
-    }
+  const {categoryId, message, markdown} = this.sharedMeta.body;
 
-    const replyErrorResponse: ErrorResponse = {
+  if (categoryId === undefined || typeof categoryId !== 'string') {
+    this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
+    this.serverResponse.replyJson({
       ok: false,
-      errorCode: 'invalid_category_id',
-      errorMessage: 'Invalid category.'
-    };
-
-    if (hashGenerator.verifySelfValidate(this.sharedMeta.body.categoryId) === false) {
-      this.serverResponse.replyErrorResponse(replyErrorResponse);
-      return;
-    }
-
-    const categoriesCollection = await alwatrNitrobase.openCollection<CategoryItem>(config.nitrobase.categoriesCollection);
-    if (categoriesCollection.hasItem(this.sharedMeta.body.categoryId) === false) {
-      this.serverResponse.replyErrorResponse(replyErrorResponse);
-    }
+      errorCode: 'category_required',
+      errorMessage: 'Category is required.',
+    });
+    return;
   }
-  catch (error) {
-    logger.error?.('validateCategoryId', 'validating_category_id_error', {error});
+
+  if (message === undefined || typeof message !== 'string') {
+    this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
+    this.serverResponse.replyJson({
+      ok: false,
+      errorCode: 'message_required',
+      errorMessage: 'Message is required.',
+    });
+    return;
   }
+
+  const categoriesCollection = await alwatrNitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
+
+  if (categoriesCollection.hasItem(categoryId) === false) {
+    this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
+    this.serverResponse.replyJson({
+      ok: false,
+      errorCode: 'category_not_found',
+      errorMessage: 'Category not found.',
+    });
+    return;
+  }
+
+  // just for type validation
+  (this.sharedMeta.body as NotifyOption) = {
+    categoryId,
+    message,
+    markdown: markdown === true,
+  };
 }
