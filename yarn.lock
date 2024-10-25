@@ -199,14 +199,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/nano-build@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@alwatr/nano-build@npm:2.0.2"
+"@alwatr/nano-build@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@alwatr/nano-build@npm:2.0.3"
   dependencies:
     esbuild: "npm:^0.24.0"
   bin:
     nano-build: ./nano-build.cjs
-  checksum: 10c0/e36b8e0807a2096a883f9b534543fce7b46bebe2e062b5ab2ec5d1b83ab534205b55146aa7393ecf3237552f5ab2fa22f2889003039417da089bacc1af8d61df
+  checksum: 10c0/6fe3e78963e478e35a661b91aa487ae990e86a95b7c497f3f9bb27e1d0c610b33160f190a062e6ce3bf10a74616b528b63256de8738d4207331b822763de017f
   languageName: node
   linkType: hard
 
@@ -413,17 +413,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/tsconfig-base@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "@alwatr/tsconfig-base@npm:1.3.2"
-  checksum: 10c0/d92d80881d380502249a4febfd78dc8051f0b77ce92069f7f31e091cfbb504e58dce1c456ce2a3b069d5773238dcfe1ee912623a954c48a6d6df0385d4048cd2
+"@alwatr/tsconfig-base@npm:^1.3.3":
+  version: 1.3.3
+  resolution: "@alwatr/tsconfig-base@npm:1.3.3"
+  checksum: 10c0/e5900d36d66ffabf3c944e964eb776b0b424d3560422282c86544d7e1501ec239802ebb05f0b6f8e46e58cb4bf437c1e4b9ccf78987320ddc82beabccef4b275
   languageName: node
   linkType: hard
 
-"@alwatr/type-helper@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@alwatr/type-helper@npm:2.0.2"
-  checksum: 10c0/0ea8ac7b531737d3e832c447dc62e2ff74f79e856f8d98790ee34a57fcd88db81a05eb1306a54a9a4f805eee9059a7721a3b543ea10fc27f7ee29b5c732ec207
+"@alwatr/type-helper@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@alwatr/type-helper@npm:2.0.3"
+  checksum: 10c0/0b485d51d215242e8a59bba01acc64d9fc9738fb4f6be66ec0eee1d02736b28481ed1b6cb512d85583d8d435bf36c6a26a2adc5695cb6fecf86f94a89029c501
   languageName: node
   linkType: hard
 
@@ -8338,10 +8338,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "telegram-notifier@workspace:packages/notifier-api"
   dependencies:
-    "@alwatr/nano-build": "npm:^2.0.2"
+    "@alwatr/nano-build": "npm:^2.0.3"
     "@alwatr/prettier-config": "npm:^1.0.6"
-    "@alwatr/tsconfig-base": "npm:^1.3.2"
-    "@alwatr/type-helper": "npm:^2.0.2"
+    "@alwatr/tsconfig-base": "npm:^1.3.3"
+    "@alwatr/type-helper": "npm:^2.0.3"
     "@types/node": "npm:^22.7.7"
     alwatr: "npm:^2.0.3"
     grammy: "npm:^1.30.0"
