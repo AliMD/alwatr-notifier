@@ -1,7 +1,7 @@
 import {config, logger} from '../config.js';
 import {bot} from '../lib/bot.js';
 import {message} from '../lib/message.js';
-import {nitrobase} from '../lib/nitrobase.js';
+import {openCategoryCollection, nitrobase} from '../lib/nitrobase.js';
 
 import type {Category} from '../type.js';
 
@@ -31,9 +31,9 @@ bot.command(
         return;
       }
 
-      const categoriesCollection = await nitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
+      const categoryCollection = await openCategoryCollection();
 
-      if (categoriesCollection.hasItem(categoryId) === false) {
+      if (categoryCollection.hasItem(categoryId) === false) {
         logger.incident?.('startCommand', 'category_not_found', {categoryId, from: ctx.from, chat: ctx.chat});
         await ctx.reply(message.invalid_data_submitted, {
           reply_parameters: {
@@ -43,7 +43,7 @@ bot.command(
         return;
       }
 
-      const members = categoriesCollection.getItemData(categoryId).members;
+      const members = categoryCollection.getItemData(categoryId).members;
 
       if (members.findIndex((member) => member.id === ctx.chat.id) !== -1) {
         await ctx.reply(message.already_added_to_list);
@@ -58,7 +58,7 @@ bot.command(
         lastName: ctx.chat.last_name,
         username: ctx.chat.username,
       });
-      categoriesCollection.save();
+      categoryCollection.save();
 
       await ctx.reply(message.success_added_to_list);
     }
