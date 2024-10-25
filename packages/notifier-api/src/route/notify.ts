@@ -1,12 +1,12 @@
+import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
+
 import {logger} from '../config.js';
-import {notifyValidation} from '../handler/notify-validation.js';
 import {parseBodyAsJson} from '../handler/parse-body-as-json.js';
-import {notify} from '../lib/notify.js';
+import { openCategoryCollection } from '../lib/nitrobase.js';
 import {nanotronApiServer} from '../lib/server.js';
+import {telegramNotify, type TelegramNotifyOption} from '../lib/telegram-notify.js';
 
-import type {NotifyOption} from '../type.js';
-
-nanotronApiServer.defineRoute<{body: NotifyOption}>({
+nanotronApiServer.defineRoute<{body: TelegramNotifyOption}>({
   method: 'POST',
   url: 'notify',
   preHandlers: [parseBodyAsJson, notifyValidation],
@@ -14,10 +14,55 @@ nanotronApiServer.defineRoute<{body: NotifyOption}>({
     logger.logMethod?.('notifyRoute');
 
     const notifyOption = this.sharedMeta.body;
-    notify(notifyOption); // no need to await
+    telegramNotify(notifyOption); // no need to await
 
     this.serverResponse.replyJson({
       ok: true,
     });
   },
 });
+
+export async function notifyValidation(this: NanotronClientRequest<{body: JsonObject}>): Promise<void> {
+  const {categoryId, message, markdown} = this.sharedMeta.body;
+
+  logger.logMethodArgs?.('notifyValidation', {categoryId, message, markdown});
+
+  if (categoryId === undefined || typeof categoryId !== 'string') {
+    this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
+    this.serverResponse.replyJson({
+      ok: false,
+      errorCode: 'category_required',
+      errorMessage: 'Category is required.',
+    });
+    return;
+  }
+
+  if (message === undefined || typeof message !== 'string') {
+    this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
+    this.serverResponse.replyJson({
+      ok: false,
+      errorCode: 'message_required',
+      errorMessage: 'Message is required.',
+    });
+    return;
+  }
+
+  const categoryCollection = await openCategoryCollection();
+
+  if (categoryCollection.hasItem(categoryId) === false) {
+    this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
+    this.serverResponse.replyJson({
+      ok: false,
+      errorCode: 'category_not_found',
+      errorMessage: `Category ${categoryId} not found.`,
+    });
+    return;
+  }
+
+  // just for type validation and cleanup extra
+  (this.sharedMeta.body as TelegramNotifyOption) = {
+    categoryId,
+    message,
+    markdown: markdown === true,
+  };
+}
