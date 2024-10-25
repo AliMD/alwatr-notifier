@@ -11,14 +11,3 @@ export type Member = {
   firstName?: string;
   lastName?: string;
 };
-
-export type NotifyOption = {
-  categoryId: string;
-  message: string;
-  markdown: boolean;
-};
-
-export type AddNewCategoryOption = {
-  title: string;
-  adminToken: string;
-}
