@@ -2,6 +2,7 @@ import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
 import {logger} from '../config.js';
 import {parseBodyAsJson} from '../handler/parse-body-as-json.js';
+import { requireAccessToken } from '../handler/require-access-token.js';
 import {bot} from '../lib/bot.js';
 import {openCategoryCollection} from '../lib/nitrobase.js';
 import {nanotronApiServer} from '../lib/server.js';
@@ -14,7 +15,7 @@ export type NewCategoryOption = {
 nanotronApiServer.defineRoute<{body: NewCategoryOption}>({
   method: 'POST',
   url: 'new-category',
-  preHandlers: [parseBodyAsJson, newCategoryValidation],
+  preHandlers: [requireAccessToken, parseBodyAsJson, newCategoryValidation],
   async handler() {
     logger.logMethod?.('newCategoryRoute');
 
@@ -41,7 +42,7 @@ export async function newCategoryValidation(this: NanotronClientRequest<{body: J
 
   if (title === undefined || typeof title !== 'string') {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
-    this.serverResponse.replyJson({
+    this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'title_required',
       errorMessage: 'Title is required.',
@@ -51,7 +52,7 @@ export async function newCategoryValidation(this: NanotronClientRequest<{body: J
 
   if (id === undefined || typeof id !== 'string') {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
-    this.serverResponse.replyJson({
+    this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'id_required',
       errorMessage: 'Id is required.',
@@ -63,7 +64,7 @@ export async function newCategoryValidation(this: NanotronClientRequest<{body: J
 
   if (categoryCollection.hasItem(id)) {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
-    this.serverResponse.replyJson({
+    this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'category_exist',
       errorMessage: `Category ${id} already exist.`,

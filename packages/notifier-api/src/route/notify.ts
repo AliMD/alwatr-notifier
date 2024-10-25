@@ -2,6 +2,7 @@ import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
 import {logger} from '../config.js';
 import {parseBodyAsJson} from '../handler/parse-body-as-json.js';
+import { requireAccessToken } from '../handler/require-access-token.js';
 import { openCategoryCollection } from '../lib/nitrobase.js';
 import {nanotronApiServer} from '../lib/server.js';
 import {telegramNotify, type TelegramNotifyOption} from '../lib/telegram-notify.js';
@@ -9,7 +10,7 @@ import {telegramNotify, type TelegramNotifyOption} from '../lib/telegram-notify.
 nanotronApiServer.defineRoute<{body: TelegramNotifyOption}>({
   method: 'POST',
   url: 'notify',
-  preHandlers: [parseBodyAsJson, notifyValidation],
+  preHandlers: [requireAccessToken, parseBodyAsJson, notifyValidation],
   async handler() {
     logger.logMethod?.('notifyRoute');
 
@@ -29,7 +30,7 @@ export async function notifyValidation(this: NanotronClientRequest<{body: JsonOb
 
   if (categoryId === undefined || typeof categoryId !== 'string') {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
-    this.serverResponse.replyJson({
+    this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'category_required',
       errorMessage: 'Category is required.',
@@ -39,7 +40,7 @@ export async function notifyValidation(this: NanotronClientRequest<{body: JsonOb
 
   if (message === undefined || typeof message !== 'string') {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
-    this.serverResponse.replyJson({
+    this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'message_required',
       errorMessage: 'Message is required.',
@@ -51,7 +52,7 @@ export async function notifyValidation(this: NanotronClientRequest<{body: JsonOb
 
   if (categoryCollection.hasItem(categoryId) === false) {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
-    this.serverResponse.replyJson({
+    this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'category_not_found',
       errorMessage: `Category ${categoryId} not found.`,
