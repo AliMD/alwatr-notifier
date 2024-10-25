@@ -1,7 +1,7 @@
 import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
 import {config, logger} from '../config.js';
-import { getAuthBearer } from '../lib/get-auth-bearer.js';
+import {getAuthBearer} from '../lib/get-auth-bearer.js';
 
 export async function requireAccessToken(this: NanotronClientRequest): Promise<void> {
   const token = getAuthBearer(this.headers.authorization);
@@ -12,7 +12,7 @@ export async function requireAccessToken(this: NanotronClientRequest): Promise<v
     this.serverResponse.replyErrorResponse({
       ok: false,
       errorCode: 'authorization_required',
-      errorMessage: 'Authorization token required'
+      errorMessage: 'Authorization token required',
     });
     return;
   }

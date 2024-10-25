@@ -2,8 +2,8 @@ import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
 import {logger} from '../config.js';
 import {parseBodyAsJson} from '../handler/parse-body-as-json.js';
-import { requireAccessToken } from '../handler/require-access-token.js';
-import { openCategoryCollection } from '../lib/nitrobase.js';
+import {requireAccessToken} from '../handler/require-access-token.js';
+import {openCategoryCollection} from '../lib/nitrobase.js';
 import {nanotronApiServer} from '../lib/server.js';
 import {telegramNotify, type TelegramNotifyOption} from '../lib/telegram-notify.js';
 

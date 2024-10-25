@@ -1,9 +1,7 @@
-import {config, logger} from '../config.js';
+import {logger} from '../config.js';
 import {bot} from '../lib/bot.js';
 import {message} from '../lib/message.js';
-import {openCategoryCollection, nitrobase} from '../lib/nitrobase.js';
-
-import type {Category} from '../type.js';
+import {openCategoryCollection} from '../lib/nitrobase.js';
 
 bot.command(
   'start',
@@ -65,5 +63,5 @@ bot.command(
     catch (error) {
       logger.error?.('startCommand', 'unexpected_error', error, {categoryId, from: ctx.from, chat: ctx.chat});
     }
-  }
+  },
 );

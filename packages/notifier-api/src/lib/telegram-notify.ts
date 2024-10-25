@@ -8,7 +8,7 @@ export type TelegramNotifyOption = {
   categoryId: string;
   message: string;
   markdown: boolean;
-}
+};
 
 /**
  * Send a message to all members of the `categoryId`.
