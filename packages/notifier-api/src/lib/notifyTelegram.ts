@@ -1,7 +1,7 @@
-import {bot} from '../lib/bot.js';
-import {config, logger} from '../lib/config.js';
-import {alwatrNitrobase} from '../lib/nitrobase.js';
-import {escapeMessage} from '../lib/util.js';
+import {bot} from './bot.js';
+import {config, logger} from '../config.js';
+import {escapeMessage} from './escape-message.js';
+import {alwatrNitrobase} from './nitrobase.js';
 
 import type {GrammyError} from 'grammy';
 
