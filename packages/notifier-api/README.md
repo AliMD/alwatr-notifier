@@ -1,3 +1,3 @@
-# Telegram Notify Nanoservice
+# Telegram Notifier Microservice
 
-Distributed simple and fast telegram notify nanoservice.
+Distributed simple and fast telegram notify microservice.
