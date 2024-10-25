@@ -1,12 +1,16 @@
 import {Bot} from 'grammy';
 
-import {config, logger} from './config.js';
+import {config, logger} from '../config.js';
 
-export const bot = new Bot(config.bot.token);
+export const bot = new Bot(config.telegramBot.token, {client: config.telegramBot.clientOption});
 
-bot.start();
+bot.start({
+  ...config.telegramBot.startOption,
+  onStart(botInfo) {
+    logger.logProperty?.('botInfo', botInfo);
+  },
+});
 
-bot.catch(async (err: { message: unknown; }) => {
-  logger.error('catch', 'catch_error', err);
-  // await notifyDebug(`❗️ [#catch_error]: ${err.message}`);
+bot.catch(async (error) => {
+  logger.error('bot.catch', 'unexpected_error', error);
 });
