@@ -1,7 +1,7 @@
 import {createLogger, packageTracer} from 'alwatr/nanolib';
 import {Region, StoreFileType, type AlwatrNitrobaseConfig, type StoreFileStat} from 'alwatr/nitrobase';
 
-import type {NanotronApiServerConfig, HashGeneratorConfig} from 'alwatr/nanotron';
+import type {NanotronApiServerConfig} from 'alwatr/nanotron';
 import type {PollingOptions, ApiClientOptions} from 'grammy';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
@@ -11,16 +11,10 @@ export const logger = /* #__PURE__ */ createLogger(__package_name__);
 const env = /* #__PURE__ */ (() => {
   const devConfig = {
     dbPath: './db',
-    tokenSecret: 'DEV_SECRET',
     host: '0.0.0.0',
     port: 8000,
     botToken: 'BOT_TOKEN',
-    botUsername: 'BOT_USERNAME',
-    botFirstName: 'BOT_FIRST_NAME',
-    dropPendingUpdates: '1',
-    botAdminChatId: 'ADMIN_CHAT_ID',
-    adminToken: 'ADMIN_TOKEN',
-
+    accessToken: 'ADMIN_TOKEN',
   } as const;
 
   const env_ = {
@@ -37,7 +31,7 @@ const env = /* #__PURE__ */ (() => {
 })();
 
 export const config = {
-  adminToken: env.adminToken!,
+  accessToken: env.accessToken!,
 
   nanotronApiServer: {
     host: env.host!,
@@ -65,13 +59,6 @@ export const config = {
       allowed_updates: ['message'],
     } as PollingOptions,
   } as const,
-
-  hashGenerator: {
-    algorithm: 'sha1',
-    crcLength: 3,
-    encoding: 'hex',
-    prefix: 'ca' // caTEGORY
-  } as HashGeneratorConfig,
 } as const;
 
 __dev_mode__: logger.logProperty?.('config', config);
