@@ -1,10 +1,12 @@
-import './bot/new-category-command.js';
-import './bot/start-command.js';
-import {logger} from './lib/config.js';
+import './command/start-command.js';
+import {logger} from './config.js';
+import {startBot} from './lib/bot.js';
 import {initializeNitrobase} from './lib/initialize-nitrobase.js';
 import './route/home.js';
-import './route/notify.js';
+import './route/notifyRoute.js';
 
-logger.banner('@alwatr/notifier-api');
+logger.banner(__package_name__);
 
 initializeNitrobase();
+
+startBot();
