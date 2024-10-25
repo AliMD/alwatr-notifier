@@ -8,7 +8,7 @@ import type {GrammyError} from 'grammy';
 /**
  * Send a message to all members of the `categoryId`.
  */
-export async function notifyTelegram(option: NotifyOption): Promise<void> {
+export async function notify(option: NotifyOption): Promise<void> {
   logger.logMethodArgs?.('notifyTelegram', option);
   const categoriesCollection = await nitrobase.openCollection<Category>(config.nitrobase.categoriesCollection);
   const members = categoriesCollection.getItemData(option.categoryId).members;
