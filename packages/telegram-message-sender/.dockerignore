@@ -1,8 +1,0 @@
-.git*
-.github
-.vscode
-deploy
-dist
-Dockerfile
-demo.http
-README.md
