@@ -11,8 +11,8 @@ export class TelegramMessageSender {
     this.config__ = {...config};
   }
 
-  async send(categoryId: string, message: string, markdown?: true) {
-    logger.logMethodArgs?.('send', {categoryId, message, markdown});
+  async notify(categoryId: string, message: string, markdown?: true) {
+    logger.logMethodArgs?.('notify', {categoryId, message, markdown});
 
     const response = await fetchJson({
       ...this.config__,
@@ -24,7 +24,7 @@ export class TelegramMessageSender {
     } as FetchOptions);
 
     if (response.ok === false) {
-      logger.incident?.('send', 'sending_message_failed', {response});
+      logger.incident?.('notify', 'notifying_message_failed', {response});
     }
   }
 }
