@@ -14,7 +14,7 @@ export type NewCategoryOption = {
 
 nanotronApiServer.defineRoute<{body: NewCategoryOption}>({
   method: 'POST',
-  url: 'new-category',
+  url: '/new-category',
   preHandlers: [requireAccessToken, parseBodyAsJson, newCategoryValidation],
   async handler() {
     logger.logMethod?.('newCategoryRoute');
