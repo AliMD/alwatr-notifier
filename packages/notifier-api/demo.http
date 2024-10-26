@@ -1,18 +1,25 @@
 @apiUrl = http://localhost:8000/api/v0
 
-# @userId = user_id
-# @userToken = user_token
-
-# @clientId =
-
-### api home
+###
 GET {{apiUrl}}/
 
 ###
-POST {{apiUrl}}/telegram/notify
+POST {{apiUrl}}/new-category
 Content-Type: application/json
+Authorization: bearer ADMIN_TOKEN
 
 {
-  "groupId": "u3Mai3i1LyhlsRkdPAarKnL864bY32D6",
-  "message": "سلام به تو!!"
+  "id": "1",
+  "title": "Tala"
+}
+
+###
+POST {{apiUrl}}/notify
+Content-Type: application/json
+Authorization: bearer ADMIN_TOKEN
+
+{
+  "categoryId": "1",
+  "message": "```#Hello ##HI```",
+  "markdown": true
 }

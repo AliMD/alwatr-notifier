@@ -9,7 +9,7 @@ import {telegramNotify, type TelegramNotifyOption} from '../lib/telegram-notify.
 
 nanotronApiServer.defineRoute<{body: TelegramNotifyOption}>({
   method: 'POST',
-  url: 'notify',
+  url: '/notify',
   preHandlers: [requireAccessToken, parseBodyAsJson, notifyValidation],
   async handler() {
     logger.logMethod?.('notifyRoute');
