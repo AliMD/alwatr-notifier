@@ -13,8 +13,8 @@ export const config = {
   accessToken: getEnv({name: 'accessToken', developmentValue: 'ADMIN_TOKEN'}),
 
   nanotronApiServer: {
-    host: getEnv({name: 'host', developmentValue: '0.0.0.0'}),
-    port: +getEnv({name: 'port', developmentValue: '8000'}),
+    host: getEnv({name: 'host', defaultValue: '0.0.0.0'}),
+    port: +getEnv({name: 'port', defaultValue: '80', developmentValue: '8000'}),
     prefix: '/api/',
   } as NanotronApiServerConfig,
 
@@ -31,7 +31,7 @@ export const config = {
   } as const,
 
   telegramBot: {
-    token: getEnv({name: 'botToken', developmentValue: 'BOT_TOKEN'}),
+    token: getEnv({name: 'botToken'}),
     clientOption: {} as ApiClientOptions,
     startOption: {
       drop_pending_updates: true,
