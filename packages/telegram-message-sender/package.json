@@ -1,9 +1,8 @@
 {
   "name": "telegram-message-sender",
-  "version": "1.0.0",
+  "version": "1.0.0-0",
   "description": "A class to send messages in `telegram`",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
-  "private": true,
   "type": "module",
   "keywords": [
     "telegram",
