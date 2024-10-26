@@ -1,25 +1,39 @@
 import {fetchJson, type FetchOptions} from 'alwatr/nanolib';
 
-import { logger } from './logger.js';
+import {logger} from './logger.js';
+
+interface Config {
+  apiBaseUrl: string;
+  categoryId: string;
+  accessToken: string;
+}
+
+interface NotifyOption {
+  categoryId?: string;
+  markdown?: true
+}
 
 export class TelegramMessageSender {
-  private config__: Partial<FetchOptions> =  {
-    method: 'POST',
-  }
+  private config__: Config
 
-  constructor(config: Partial<FetchOptions>) {
+  constructor(config: Config) {
     this.config__ = {...config};
   }
 
-  async notify(categoryId: string, message: string, markdown?: true) {
-    logger.logMethodArgs?.('notify', {categoryId, message, markdown});
+  async notify(message: string, option?: NotifyOption) {
+    logger.logMethodArgs?.('notify', {message, option});
+
+    if (option?.categoryId !== undefined) {
+      this.config__.categoryId = option.categoryId;
+    }
 
     const response = await fetchJson({
-      ...this.config__,
+      url: this.config__.apiBaseUrl + '/notify',
+      method: 'POST',
       bodyJson: {
-        categoryId,
         message,
-        markdown
+        categoryId: this.config__.categoryId,
+        markdown: option?.markdown ?? false
       }
     } as FetchOptions);
 
