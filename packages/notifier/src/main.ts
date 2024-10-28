@@ -146,7 +146,7 @@ export class AlwatrNotifier {
 
     return fetchJson({
       ...option?.fetchOption,
-      url: resolveUrl(option_.apiUrl, '/notify'),
+      url: resolveUrl(option_.apiUrl, '/api/v2/notify'),
       bearerToken: option_.accessToken,
       bodyJson: {
         message,
