@@ -1,4 +1,4 @@
-# @alwatr/notifier
+# Alwatr Notifier
 
 [![npm version](https://img.shields.io/npm/v/@alwatr/notifier.svg?style=flat-square)](https://www.npmjs.com/package/@alwatr/notifier)
 [![GitHub issues](https://img.shields.io/github/issues/alwatr/notifier.svg?style=flat-square)](https://github.com/alwatr/notifier/issues)

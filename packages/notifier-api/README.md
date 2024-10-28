@@ -1,3 +1,3 @@
-# Telegram Notifier Microservice
+# Alwatr Notifier API Microservice
 
-Distributed simple and fast telegram notify microservice.
+Distributed simple and fast notify microservice.

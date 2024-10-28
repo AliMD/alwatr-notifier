@@ -6,7 +6,7 @@ networks:
 
 services:
   api:
-    image: $notifierApiImage
+    image: $apiImage
 
     cpu_count: 1
     cpu_shares: 1024
@@ -21,7 +21,7 @@ services:
 
     environment:
       - dbPath=/data/db
-      - DEBUG=${notifierApiDebug:-}
+      - DEBUG=${apiDebug:-}
 
     volumes:
       - type: bind
@@ -39,6 +39,6 @@ services:
     labels:
       traefik.enable: true
       traefik.port: 80
-      traefik.frontend.rule: Host:${appDomains}; PathPrefix:/api/v1/;
+      traefik.frontend.rule: Host:${apiDomains}; PathPrefix:/api/;
       traefik.frontend.entryPoints: http, https
       traefik.frontend.redirect.entryPoint: https
