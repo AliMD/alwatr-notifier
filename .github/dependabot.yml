@@ -58,7 +58,7 @@ updates:
           - 'fract'
 
   - package-ecosystem: docker
-    directory: /packages/notifier-api
+    directory: /packages/api
     reviewers:
       - AliMD
     schedule:

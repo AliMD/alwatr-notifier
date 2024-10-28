@@ -1,5 +1,5 @@
 {
-  "name": "notifier-api",
+  "name": "api",
   "version": "2.0.0",
   "description": "Alwatr Telegram Notify Microservice, Distributed simple and fast telegram notify nanoservice.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
@@ -35,7 +35,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/notifier",
-    "directory": "packages/notifier-api"
+    "directory": "packages/api"
   },
   "homepage": "https://github.com/Alwatr/notifier#readme",
   "bugs": {

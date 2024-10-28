@@ -35,7 +35,7 @@ jobs:
       matrix:
         include:
           - name: notifier-api
-            path: ./packages/notifier-api
+            path: ./packages/api
             context: .
 
     permissions:

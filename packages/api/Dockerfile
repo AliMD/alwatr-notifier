@@ -5,7 +5,7 @@ RUN set -ex; \
   corepack enable;
 
 COPY package.json yarn.lock ./
-COPY packages/notifier-api/package.json packages/notifier-api/
+COPY packages/api/package.json packages/api/
 
 RUN yarn install;
 
