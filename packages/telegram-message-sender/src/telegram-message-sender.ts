@@ -30,6 +30,7 @@ export class TelegramMessageSender {
     const response = await fetchJson({
       url: this.config__.apiBaseUrl + '/notify',
       method: 'POST',
+      bearerToken: this.config__.accessToken,
       bodyJson: {
         message,
         categoryId: this.config__.categoryId,
