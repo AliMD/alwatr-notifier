@@ -7,25 +7,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+* add `.github` configs based on `weaver-starter-kit` ([296e169](https://github.com/Alwatr/notifier/commit/296e169fa1544b38b7e1f69fc9a74baf5b0591e7)) by @mohammadhonarvar
+* add `deploy` directory ([92e87ee](https://github.com/Alwatr/notifier/commit/92e87eed878f0ee2faf13db511b2d2bfdc41b10a)) by @mohammadhonarvar
+* add `telegram-message-sender` package ([f6d8e3e](https://github.com/Alwatr/notifier/commit/f6d8e3e5c881654815337d389be2f31a4c95f34c)) by @mohammadhonarvar
+* add a `demo.http` ([dc62296](https://github.com/Alwatr/notifier/commit/dc62296b6533f8cc18a1cdd668cef1ef2b594762)) by @mohammadhonarvar
 * getAuthBearer ([836ac0c](https://github.com/Alwatr/notifier/commit/836ac0cded9995689e7703927eb230faeb6c4830)) by @AliMD
 * **notifier-api:** add a new route to create a category ([dc91839](https://github.com/Alwatr/notifier/commit/dc91839abf735c87f0cc07b891df6261669fd0d2)) by @mohammadhonarvar
 * **notifier-api:** Add parseBodyAsJson handler ([2cf2b13](https://github.com/Alwatr/notifier/commit/2cf2b13a6570879b50ad1007a87c14f0c8357edb)) by @AliMD
 * **notifier-api:** start the bot & handle errors ([3f24b61](https://github.com/Alwatr/notifier/commit/3f24b61a079dd3dbfce79186f33987c6a4e4229e)) by @mohammadhonarvar
 * **notifier-api:** use `AlwatrHashGenerator` ([0cbdca7](https://github.com/Alwatr/notifier/commit/0cbdca76cd7e3eaa1d1b5e38dcfd4c7c31babd16)) by @mohammadhonarvar
 * **notifier-api:** use `hashGenerator` & save data ([572fe39](https://github.com/Alwatr/notifier/commit/572fe39d33a9c7ec0a47d00618fb2a6f6c9a9b43)) by @mohammadhonarvar
+* **notify:** new notify package ([42cb4b6](https://github.com/Alwatr/notifier/commit/42cb4b6e0374efd4c0f5b56dd01b1f06db805c87)) by @AliMD
 * requireAccessToken handler ([6b0961b](https://github.com/Alwatr/notifier/commit/6b0961b91e0a2f0238b3c1346e9406af93abef34)) by @AliMD
+* **telegram:** add `cryptoFactory` ([dc0ddd1](https://github.com/Alwatr/notifier/commit/dc0ddd10efd1f622c756bc002c7ef4aba6dbd395)) by @mohammadhonarvar
+* **telegram:** add `Dockerfile` ([4ae0796](https://github.com/Alwatr/notifier/commit/4ae079661856936b8c6a04dc441290755b79de1f)) by @mohammadhonarvar
+* **telegram:** add `getUnsubscribeInlineKeyboardData` to reuse ([c2bc35a](https://github.com/Alwatr/notifier/commit/c2bc35a6f1d899b2c3bf3aec896b1cf42a55e6d7)) by @mohammadhonarvar
+* **telegram:** add `new_group` command to create a group ([89115a7](https://github.com/Alwatr/notifier/commit/89115a7c22d9f42490f20a06de2e0e53d13db934)) by @mohammadhonarvar
+* update logger ([c983ffc](https://github.com/Alwatr/notifier/commit/c983ffc1c1eedf700bcc514f32e37adea52f3562)) by @njfamirm
 * use `getEnv` to read `env`s ([#253](https://github.com/Alwatr/notifier/issues/253)) ([64c2ce0](https://github.com/Alwatr/notifier/commit/64c2ce0e933bd6dff9fd96367073a639262c4795)) by @mohammadhonarvar
 
 ### Bug Fixes
 
+* **.github:** some issues ([5f0fbb2](https://github.com/Alwatr/notifier/commit/5f0fbb249474d0a2e9be59a31b3237d3f8012b1c)) by @mohammadhonarvar
 * **api:** package name ([59b313b](https://github.com/Alwatr/notifier/commit/59b313bcec46dfaa2385fbe7265c54f41aa3a111)) by @AliMD
+* **config:** add `botAdminChatId` ([a13bc57](https://github.com/Alwatr/notifier/commit/a13bc571fd4c00caa49fdebdf9a6acb8edd10418)) by @mohammadhonarvar
+* **deploy:** `env` values ([ad5dff9](https://github.com/Alwatr/notifier/commit/ad5dff9ab3dbd270f406c46c5f3f31a5a9b45dda)) by @mohammadhonarvar
 * **notifier-api:** add missing `/` for routes ([91fc2e9](https://github.com/Alwatr/notifier/commit/91fc2e95d354b664d096ea06d113b4b0ae0c9edf)) by @mohammadhonarvar
 * review amd fix routes ([f57a0eb](https://github.com/Alwatr/notifier/commit/f57a0eb622308e62329612793ced3f55901b5700)) by @AliMD
+* **telegram-message-sender:** `version` & make it public ([207c598](https://github.com/Alwatr/notifier/commit/207c598fc046fed43c8db90f85f1131a84fca616)) by @mohammadhonarvar
+* **telegram-message-sender:** use `accessToken` ([7b43343](https://github.com/Alwatr/notifier/commit/7b43343ca0338c6b5786cf8db00c9fb0f2383a4a)) by @mohammadhonarvar
+* **telegram:** add a missing `import` & format ([66d4297](https://github.com/Alwatr/notifier/commit/66d4297414bfa9e36aaaf9e3867f82077905eb56)) by @mohammadhonarvar
+* **telegram:** check the access to run the command ([ed723af](https://github.com/Alwatr/notifier/commit/ed723af95a370caf8443965cf22ae56fff4eb8fb)) by @mohammadhonarvar
+* **telegram:** read `dropPendingUpdates` from `env` object ([db3380a](https://github.com/Alwatr/notifier/commit/db3380a64820bf40e0fffb9ae99322a6543f103c)) by @mohammadhonarvar
+* **telegram:** remove creating a group as default when it doesn't exist ([d72f8a3](https://github.com/Alwatr/notifier/commit/d72f8a34a3890942c7f866b46488ad7577432ad6)) by @mohammadhonarvar
+* **telegram:** start `bot` ([f1b1186](https://github.com/Alwatr/notifier/commit/f1b11863665184f1d50bd8d2542fbf8b5d86b105)) by @mohammadhonarvar
+* **telegram:** types ([45e4579](https://github.com/Alwatr/notifier/commit/45e45794e3f5960883104efbdd48645b8a7f53d8)) by @mohammadhonarvar
+* **telegram:** validate `groupId` ([5311b39](https://github.com/Alwatr/notifier/commit/5311b3966c4050f2faef78ae2139d2aef3d407bc)) by @mohammadhonarvar
+* update `scripts` ([e06afbe](https://github.com/Alwatr/notifier/commit/e06afbe50e955b9c743ff930d4bab8baef0e8993)) by @mohammadhonarvar
+* **vscode:** vscode sdk ([1150911](https://github.com/Alwatr/notifier/commit/1150911d472dbb7f4c90c1e06aa6d39056b7b4ce)) by @njfamirm
 
 ### Code Refactoring
 
+* add the basic structure from `nanolib` ([f0ba631](https://github.com/Alwatr/notifier/commit/f0ba631aece67e1c16847a740efb8e990ec17cd9)) by @mohammadhonarvar
 * **config:** cleanup ([a6353d6](https://github.com/Alwatr/notifier/commit/a6353d6ef645f020cbc3e11f64b2ed85e8c19f4a)) by @AliMD
 * **db:** review and enhance ([f32868e](https://github.com/Alwatr/notifier/commit/f32868eb5465e7fc651a633be36f9bcd1916b978)) by @AliMD
+* **deploay:** add some changes based on `weaver-starter-kit` ([aa7aebc](https://github.com/Alwatr/notifier/commit/aa7aebc828908924b8ce3a5d8249ef286d4c638b)) by @mohammadhonarvar
 * **new-category:** rewrite new category route ([f83c301](https://github.com/Alwatr/notifier/commit/f83c301211c97cf8fd3ed0594a84d641798cfcb2)) by @AliMD
 * **notifier-api:** add some pre-handlers & complete the process of `notify` route & cleanup codes ([458be1d](https://github.com/Alwatr/notifier/commit/458be1db74c3ae612833e520204feac92482c222)) by @mohammadhonarvar
 * **notifier-api:** copy path in `Dockerfile` ([0272483](https://github.com/Alwatr/notifier/commit/0272483af9e5adc165f4a7c95639c8adedcbc468)) by @mohammadhonarvar
@@ -56,94 +82,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * rename files ([da6b6e9](https://github.com/Alwatr/notifier/commit/da6b6e9c86a2b85872b6683508f366633aa1084b)) by @AliMD
 * rename files and cleaup ([93bb419](https://github.com/Alwatr/notifier/commit/93bb4192a06ffeb13cbd0c92f08f219cffd257a1)) by @AliMD
 * **start-command:** review and enhance ([2a3cbd0](https://github.com/Alwatr/notifier/commit/2a3cbd0c7b402f900ab4e1e91bd5623a6059f1c3)) by @AliMD
+* **telegram-message-sender:** add some types & refactor configs ([8cae2e4](https://github.com/Alwatr/notifier/commit/8cae2e484c8a6b8eaebd00f134243ceb71c8b32a)) by @mohammadhonarvar
+* **telegram-message-sender:** rename `send` to `notify` ([f492d2d](https://github.com/Alwatr/notifier/commit/f492d2d00b967409aa1e3ce8e9a3eff8f809a891)) by @mohammadhonarvar
+* **telegram:** fix errors & complete the structure ([6e95609](https://github.com/Alwatr/notifier/commit/6e956096cd6a8ef4d804d044a254a56329805b27)) by @mohammadhonarvar
+* **telegram:** keys of `message` & fix all its usages ([087e98a](https://github.com/Alwatr/notifier/commit/087e98a286aab3b675e2506441b539ea9ec4b208)) by @mohammadhonarvar
+* **telegram:** sending message & the process of `start` command ([e748d94](https://github.com/Alwatr/notifier/commit/e748d94c0f91057f3aecb1baf5508b9a8240ace2)) by @mohammadhonarvar
+* **telegram:** types ([4ae9d53](https://github.com/Alwatr/notifier/commit/4ae9d532db54e0d7cd4f0ac2c807efd8f16dc410)) by @mohammadhonarvar
+* **vscode:** Update .vscode/settings.json ([42a2f59](https://github.com/Alwatr/notifier/commit/42a2f59aa6d6e6fae0bf4537168f5b6eed12dd29)) by @AliMD
 
 ### Miscellaneous Chores
 
+* **.vscode:** update ([baa21f9](https://github.com/Alwatr/notifier/commit/baa21f9aa0c069ddc9516351dc6d6626f991d437)) by @mohammadhonarvar
+* **ci:** lockfile-only dependabot ([3ade5a7](https://github.com/Alwatr/notifier/commit/3ade5a7456cfd5a6048a1744313b27ea0439da9f)) by @njfamirm
 * cleanup ([c59925d](https://github.com/Alwatr/notifier/commit/c59925d05f00d7c51c3c840a0f580d41c7ba232f)) by @AliMD
 * cleanup ([e5af06e](https://github.com/Alwatr/notifier/commit/e5af06e73a335b06fb1d8d9de9493486298b2358)) by @AliMD
+* cleanup ([665aa21](https://github.com/Alwatr/notifier/commit/665aa218b0d23e2df373e1bb0e7dfd37766554e7)) by @njfamirm
+* **command:** upd ([b709ea9](https://github.com/Alwatr/notifier/commit/b709ea973997be0f7c1951fc9c0ebf4619357305)) by @njfamirm
+* **depndabot:** remove lockfile only ([0ca51a1](https://github.com/Alwatr/notifier/commit/0ca51a1860f7d3fa6abbe6193aef4ad856ca13f8)) by @njfamirm
+* **deps-dev:** bump the alwatr-dependencies group with 3 updates ([17e81a0](https://github.com/Alwatr/notifier/commit/17e81a06ef12e7276b0c95417d4f1468aa0429f9)) by @dependabot[bot]
+* **deps-dev:** bump the development-dependencies group with 13 updates ([542e49b](https://github.com/Alwatr/notifier/commit/542e49b2b52a444bfa2ccc931a0f0d46d3abd177)) by @dependabot[bot]
+* **deps:** bump tar from 6.2.0 to 6.2.1 ([c724c75](https://github.com/Alwatr/notifier/commit/c724c7566e7deb2a68546c7ff084902fcec68123)) by @dependabot[bot]
+* **deps:** bump the github-actions group with 1 update ([c4d974c](https://github.com/Alwatr/notifier/commit/c4d974c4f01e3cffd64266542fe3ffab16b555c7)) by @dependabot[bot]
+* **deps:** bump the github-actions group with 1 update ([511412d](https://github.com/Alwatr/notifier/commit/511412d712d9e0da3ca3d954cc8039be854c2732)) by @dependabot[bot]
+* fix review issue ([4043295](https://github.com/Alwatr/notifier/commit/404329533d13ce5fc6720a1e64110373cfd1fc27)) by @njfamirm
+* lint ([d3130f7](https://github.com/Alwatr/notifier/commit/d3130f7feca9e127ab426c61fc4fa79c79543f52)) by @njfamirm
+* move telegram ([3e352e7](https://github.com/Alwatr/notifier/commit/3e352e73e031fd4488bb510777df629413c25fa7)) by @njfamirm
 * **notifier-api:** cleanup ([9aec891](https://github.com/Alwatr/notifier/commit/9aec8917a60368301f927ff4f4ae0b1b555b1cb7)) by @mohammadhonarvar
 * **notifier-api:** update `demo.http` ([9a72110](https://github.com/Alwatr/notifier/commit/9a721102f785f2e5f053f713d19528d25065cddf)) by @mohammadhonarvar
-
-## [1.0.1](https://github.com/Alwatr/notifier/compare/v1.0.0...v1.0.1) (2023-06-21)
-
-**Note:** Version bump only for package @alwatr/telegram-notify
-
-# [1.0.0](https://github.com/Alwatr/notifier/compare/v0.32.0...v1.0.0) (2023-06-14)
-
-### Features
-
-- review and cleanup all workflows ([fff7e92](https://github.com/Alwatr/notifier/commit/fff7e92c5d85a79adcc975802b949a9dc61d2ba3))
-
-# [0.32.0](https://github.com/Alwatr/notifier/compare/v0.31.0...v0.32.0) (2023-05-27)
-
-**Note:** Version bump only for package @alwatr/telegram-notify
-
-# [0.31.0](https://github.com/Alwatr/notifier/compare/v0.30.0...v0.31.0) (2023-05-08)
-
-### Bug Fixes
-
-- new logger api ([9d83a7d](https://github.com/Alwatr/notifier/commit/9d83a7dc5c103bc3bb4282dacfd85fa998915300))
-- **telegram-notifier:** escaping send message ([a9814bf](https://github.com/Alwatr/notifier/commit/a9814bfca41c1260d5de7ec75e2356b3cdcbbc9d))
-
-# [0.30.0](https://github.com/Alwatr/notifier/compare/v0.29.0...v0.30.0) (2023-03-06)
-
-### Bug Fixes
-
-- **telegram-notifier:** escaping special characters on sendMessage ([5507d6d](https://github.com/Alwatr/notifier/commit/5507d6dd460201979b7ee3bb1ae255e572b7cf0d))
-
-# [0.29.0](https://github.com/Alwatr/notifier/compare/v0.28.0...v0.29.0) (2023-02-10)
-
-### Bug Fixes
-
-- **typescript:** rollback to 4.9.5 ([cc30f85](https://github.com/Alwatr/notifier/commit/cc30f8502bf95868ff41ba986120b2842acba36b))
-
-# [0.28.0](https://github.com/Alwatr/notifier/compare/v0.27.0...v0.28.0) (2023-01-20)
-
-### Bug Fixes
-
-- **services:** app name in home page ([6feab58](https://github.com/Alwatr/notifier/commit/6feab58b5655c7a09150ec83adf9f3bd8fe976b4))
-- **services:** name and desc ([453c1b6](https://github.com/Alwatr/notifier/commit/453c1b6ff334a23bea690b7ff9dd874471b25bb9))
-- **services:** service name in first log ([879f87f](https://github.com/Alwatr/notifier/commit/879f87fd4d4b47454d608a5b71d70e47601c7cd7))
-- version in package.json ([403baa5](https://github.com/Alwatr/notifier/commit/403baa53159db2a0fff5b3651769b85e66b13191))
-
-### Features
-
-- **type:** define constructor type ([39c5ab7](https://github.com/Alwatr/notifier/commit/39c5ab74f0a1471d5e20beff89f6885265907633))
-
-# [0.27.0](https://github.com/Alwatr/notifier/compare/v0.26.0...v0.27.0) (2022-12-29)
-
-**Note:** Version bump only for package @alwatr/telegram-notify
-
-# [0.26.0](https://github.com/Alwatr/notifier/compare/v0.25.0...v0.26.0) (2022-12-22)
-
-### Bug Fixes
-
-- add esbuild to git ignore ([46b3714](https://github.com/Alwatr/notifier/commit/46b3714a4b578b6cfae9e2d17f8c39623470c1f5))
-- all import without .js ([fa739ab](https://github.com/Alwatr/notifier/commit/fa739ab23f67bae1d10bfcc146920b71377a26fc))
-- clean command ([14bafbb](https://github.com/Alwatr/notifier/commit/14bafbb01b3c92ccf516346a4e5117f1893c32e9))
-- crawler loop ([72951f9](https://github.com/Alwatr/notifier/commit/72951f904c8e8eb04ded2a485a65add99150f984))
-- inline home route ([94279c2](https://github.com/Alwatr/notifier/commit/94279c21891fc710f48642b1c8debbf02b2436d3))
-- inline home route ([ce978f6](https://github.com/Alwatr/notifier/commit/ce978f6e1e2890e853d0db351c08efca665e5fad))
-- package.json script ([e633a8c](https://github.com/Alwatr/notifier/commit/e633a8c4355bec0d2fc044f073f7f639c0fd1976))
-- remove lint dependencies from services ([f047a5b](https://github.com/Alwatr/notifier/commit/f047a5bb0d1e8277f48b55969e18dc3582d9a234))
-- services serve script ([3c62e06](https://github.com/Alwatr/notifier/commit/3c62e06ec594ec7da171fc39ec77787e3bd29a0c))
-- **services/telegram-notifier:** remove await out of fucntion ([283b58b](https://github.com/Alwatr/notifier/commit/283b58b0ebf8a9c01805e1aa6ee8222933b9dbc7))
-- **services/telegram-notifier:** remove storga-client ([c27f992](https://github.com/Alwatr/notifier/commit/c27f9927b97f4d6f2e9c78d5a0a3f0268275bc38))
-- **services/telegram-notifier:** set stroage name in config ([010fa71](https://github.com/Alwatr/notifier/commit/010fa71cf15698bffcc5378b252bd0aa564d8d6e))
-- **telegram-notifier:** build ([ecce1df](https://github.com/Alwatr/notifier/commit/ecce1df81642b329dfb863d0503c06fc40688550))
-- **telegram-notifier:** folder ([8bb0b01](https://github.com/Alwatr/notifier/commit/8bb0b016502f6e2c5b1dd588e8300d36eb24eba7))
-- **telegram-notifier:** lanch fail ([413b5fc](https://github.com/Alwatr/notifier/commit/413b5fc3753304fe3c7e3e4ff574040fe3395ae8))
-- **telegram-notifier:** prevent duplicate register ([4f41f4c](https://github.com/Alwatr/notifier/commit/4f41f4c6cca881f0fc90cc253d8d6eaa15a50c43))
-- tsconfig refrences ([cea0562](https://github.com/Alwatr/notifier/commit/cea05621ecfa499476c5b10a412e60f27ba6a06d))
-- update reply nano-server ([5a2d0e5](https://github.com/Alwatr/notifier/commit/5a2d0e5698b16cffcc5393ee4a44ffda66702425))
-
-### Features
-
-- esbuild (: ([43c7269](https://github.com/Alwatr/notifier/commit/43c7269333cf71b142e26da1456446d42fb3f8e0))
-- **flight-crawler:** run infinite ([a0185bc](https://github.com/Alwatr/notifier/commit/a0185bc39eab40862e0621ae703f604b30998991))
-- improve error debugging ([1fba504](https://github.com/Alwatr/notifier/commit/1fba50400a1e8ececc10bbe8ea11cc8dcea2289c))
-- launchBot ([b3990f9](https://github.com/Alwatr/notifier/commit/b3990f92bba1b65d0e728615f701a4799619d821))
-- move some depndencies to devDependencies ([4e9576e](https://github.com/Alwatr/notifier/commit/4e9576e6fd55f361e08a54230931ad45832131d9))
-- new build process ([aa23ed2](https://github.com/Alwatr/notifier/commit/aa23ed256824b9b4409e51a3213d6e67f2aeb8a3))
-- **services/telegram-notifier:** dynamic storage path ([9f59240](https://github.com/Alwatr/notifier/commit/9f5924008d7b567af1c990450da2450af887404a))
-- **telegram-notifier:** esbuild config ([b1ca298](https://github.com/Alwatr/notifier/commit/b1ca298df482daddfab4d89e807c4c5654394245))
+* registry url ([5fd7811](https://github.com/Alwatr/notifier/commit/5fd7811a39685d93247be4d2f455c9c716899b8a)) by @njfamirm
+* static version in lerna ([fb96f40](https://github.com/Alwatr/notifier/commit/fb96f401453fcf09a144876109a47883dbd8d348)) by @njfamirm
+* **telegram-message-sender:** remove extra files ([649faa7](https://github.com/Alwatr/notifier/commit/649faa71d02b38c49a493ced7e66042f8dd34fc4)) by @mohammadhonarvar
+* update `lerna` based on `weaver-starter-kit` ([9d5f5b3](https://github.com/Alwatr/notifier/commit/9d5f5b3eff3e4745b1fd041aedfca9531ac99401)) by @mohammadhonarvar
+* update base ([092d771](https://github.com/Alwatr/notifier/commit/092d771bd529d18739039d685acb9c78693df0a2)) by @njfamirm
