@@ -1,6 +1,6 @@
 import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
-import {logger} from '../config.js';
+import {config, logger} from '../config.js';
 import {parseBodyAsJson} from '../handler/parse-body-as-json.js';
 import {requireAccessToken} from '../handler/require-access-token.js';
 import {bot} from '../lib/bot.js';
@@ -15,7 +15,7 @@ export type NewCategoryOption = {
 nanotronApiServer.defineRoute<{body: NewCategoryOption}>({
   method: 'POST',
   url: '/new-category',
-  preHandlers: [requireAccessToken, parseBodyAsJson, newCategoryValidation],
+  preHandlers: [requireAccessToken(config.accessToken), parseBodyAsJson, newCategoryValidation],
   async handler() {
     logger.logMethod?.('newCategoryRoute');
 
