@@ -1,6 +1,6 @@
 import {HttpStatusCodes, type NanotronClientRequest} from 'alwatr/nanotron';
 
-import {logger} from '../config.js';
+import {config, logger} from '../config.js';
 import {parseBodyAsJson} from '../handler/parse-body-as-json.js';
 import {requireAccessToken} from '../handler/require-access-token.js';
 import {openCategoryCollection} from '../lib/nitrobase.js';
@@ -10,7 +10,7 @@ import {telegramNotify, type TelegramNotifyOption} from '../lib/telegram-notify.
 nanotronApiServer.defineRoute<{body: TelegramNotifyOption}>({
   method: 'POST',
   url: '/notify',
-  preHandlers: [requireAccessToken, parseBodyAsJson, notifyValidation],
+  preHandlers: [requireAccessToken(config.accessToken), parseBodyAsJson, notifyValidation],
   async handler() {
     logger.logMethod?.('notifyRoute');
 
