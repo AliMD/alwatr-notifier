@@ -1,3 +1,4 @@
+import {getEnv} from '@alwatr/env';
 import {createLogger, packageTracer} from 'alwatr/nanolib';
 import {Region, StoreFileType, type AlwatrNitrobaseConfig, type StoreFileStat} from 'alwatr/nitrobase';
 
@@ -8,40 +9,18 @@ __dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
 export const logger = /* #__PURE__ */ createLogger(__package_name__);
 
-const env = /* #__PURE__ */ (() => {
-  const devConfig = {
-    dbPath: './db',
-    host: '0.0.0.0',
-    port: 8000,
-    botToken: 'BOT_TOKEN',
-    accessToken: 'ADMIN_TOKEN',
-  } as const;
-
-  const env_ = {
-    ...process.env,
-    ...(__dev_mode__ ? devConfig : {}),
-  };
-
-  for (const key in devConfig) {
-    if (!Object.hasOwn(devConfig, key)) continue;
-    if (!Object.hasOwn(env_, key)) throw new Error(`${key} required in production.`);
-  }
-
-  return env_;
-})();
-
 export const config = {
-  accessToken: env.accessToken!,
+  accessToken: getEnv({name: 'accessToken', developmentValue: 'ADMIN_TOKEN'}),
 
   nanotronApiServer: {
-    host: env.host!,
-    port: +env.port!,
+    host: getEnv({name: 'host', defaultValue: '0.0.0.0'}),
+    port: +getEnv({name: 'port', defaultValue: '80', developmentValue: '8000'}),
     prefix: '/api/',
   } as NanotronApiServerConfig,
 
   nitrobase: {
     config: {
-      rootPath: env.dbPath!,
+      rootPath: getEnv({name: 'dbPath', developmentValue: './db'}),
     } as AlwatrNitrobaseConfig,
 
     categoryCollection: {
@@ -52,7 +31,7 @@ export const config = {
   } as const,
 
   telegramBot: {
-    token: env.botToken!,
+    token: getEnv({name: 'botToken'}),
     clientOption: {} as ApiClientOptions,
     startOption: {
       drop_pending_updates: true,
