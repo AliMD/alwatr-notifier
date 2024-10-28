@@ -4,10 +4,6 @@ name: Build & Publish Containers
 
 on:
   workflow_dispatch:
-    inputs:
-      siteUrl:
-        description: Website URL
-        type: string
 
   push:
     branches:
@@ -21,7 +17,6 @@ on:
 
 env:
   USER: Alwatr
-  siteUrl: ${{ github.event.inputs.siteUrl || secrets.SITE_URL }}
 
 jobs:
   build:
@@ -119,8 +114,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-          build-args: |
-            siteUrl=${{ env.siteUrl }}
 
       # - name: 🏗 Sign the image with GitHub OIDC Token
       #   if: ${{ github.event_name != 'pull_request' && steps.file_change.outputs.container_folder != 'false' }}
