@@ -5,9 +5,13 @@ import {bot} from '../lib/bot.js';
 import {openCategoryCollection} from '../lib/nitrobase.js';
 import {nanotronApiServer} from '../lib/server.js';
 
+import type { Category } from '../type.js';
+
 export type NewCategoryOption = {
   id: string;
   title: string;
+  channel: boolean,
+  group: boolean,
 };
 
 nanotronApiServer.defineRoute<{body: NewCategoryOption}>({
@@ -17,11 +21,25 @@ nanotronApiServer.defineRoute<{body: NewCategoryOption}>({
   async handler() {
     logger.logMethod?.('newCategoryRoute');
 
-    const {id, title} = this.sharedMeta.body;
+    const {id, title, channel, group} = this.sharedMeta.body;
 
     const categoryCollection = await openCategoryCollection();
 
-    categoryCollection.addItem(id, {title, members: []});
+    const members: Category['members'] = [];
+    if (channel === true) {
+      members.push({
+        id,
+        type: 'channel'
+      });
+    }
+    else if (group === true) {
+      members.push({
+        id,
+        type: 'group'
+      });
+    }
+
+    categoryCollection.addItem(id, {title, members});
 
     const botInfo = bot.botInfo;
 
@@ -35,8 +53,8 @@ nanotronApiServer.defineRoute<{body: NewCategoryOption}>({
 });
 
 export async function newCategoryValidation(this: NanotronClientRequest<{body: JsonObject}>): Promise<void> {
-  const {id, title} = this.sharedMeta.body;
-  logger.logMethodArgs?.('newCategoryValidation', {id, title});
+  const {id, title, channel, group} = this.sharedMeta.body;
+  logger.logMethodArgs?.('newCategoryValidation', {id, title, channel, group});
 
   if (title === undefined || typeof title !== 'string') {
     this.serverResponse.statusCode = HttpStatusCodes.Error_Client_400_Bad_Request;
@@ -74,5 +92,7 @@ export async function newCategoryValidation(this: NanotronClientRequest<{body: J
   (this.sharedMeta.body as NewCategoryOption) = {
     id,
     title,
+    channel: channel === true,
+    group: group === true
   };
 }
