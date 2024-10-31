@@ -2658,7 +2658,7 @@ __metadata:
     "@alwatr/type-helper": "npm:^2.0.3"
     "@types/node": "npm:^22.8.1"
     alwatr: "npm:^2.1.1"
-    grammy: "npm:^1.30.0"
+    grammy: "npm:^1.30.1"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -4636,15 +4636,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"grammy@npm:^1.30.0":
-  version: 1.30.0
-  resolution: "grammy@npm:1.30.0"
+"grammy@npm:^1.30.1":
+  version: 1.30.1
+  resolution: "grammy@npm:1.30.1"
   dependencies:
     "@grammyjs/types": "npm:3.14.0"
     abort-controller: "npm:^3.0.0"
     debug: "npm:^4.3.4"
     node-fetch: "npm:^2.7.0"
-  checksum: 10c0/b0bb4f45fc67e4e38d3c8a628a1254863a7d2463aa11cd5ddc5a43e98344bfd6c2b2bea809e8eed31d5b9f40b81cf6ed64466e63cb23f962233445c62ba14a23
+  checksum: 10c0/0b20fb59f2ef8d0e31b17a50e14e014520d781aba82295817bf85cbb47956b86f7e6abd6042a55965d9050374e0299e16c6622256a158b91aacbd22cce5af828
   languageName: node
   linkType: hard
 
