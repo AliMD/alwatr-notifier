@@ -1056,10 +1056,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grammyjs/types@npm:3.14.0":
-  version: 3.14.0
-  resolution: "@grammyjs/types@npm:3.14.0"
-  checksum: 10c0/39bb85a59d6c4345eae2e5629e40c7f9d3b9c3c8e7c08f8b73eefd60d2b8caf8ee40560b605225185d8fb7bbe36199fdd8d1005435d1dfff18389ed23bb804a5
+"@grammyjs/types@npm:3.16.0":
+  version: 3.16.0
+  resolution: "@grammyjs/types@npm:3.16.0"
+  checksum: 10c0/8c2947004cfac48b7ac37cdc6a84fb00f1b06dd9e4ab6dd30313ae124df1368bf42154927daeee245127feb8aeb182fd41502c5c63d7348f13bceca3aa2b1501
   languageName: node
   linkType: hard
 
@@ -2658,7 +2658,7 @@ __metadata:
     "@alwatr/type-helper": "npm:^2.0.3"
     "@types/node": "npm:^22.8.1"
     alwatr: "npm:^2.1.1"
-    grammy: "npm:^1.30.0"
+    grammy: "npm:^1.32.0"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -4636,15 +4636,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"grammy@npm:^1.30.0":
-  version: 1.30.0
-  resolution: "grammy@npm:1.30.0"
+"grammy@npm:^1.32.0":
+  version: 1.32.0
+  resolution: "grammy@npm:1.32.0"
   dependencies:
-    "@grammyjs/types": "npm:3.14.0"
+    "@grammyjs/types": "npm:3.16.0"
     abort-controller: "npm:^3.0.0"
     debug: "npm:^4.3.4"
     node-fetch: "npm:^2.7.0"
-  checksum: 10c0/b0bb4f45fc67e4e38d3c8a628a1254863a7d2463aa11cd5ddc5a43e98344bfd6c2b2bea809e8eed31d5b9f40b81cf6ed64466e63cb23f962233445c62ba14a23
+  checksum: 10c0/3c30adcd11b2767c410e1c6975e2f7cec2ddfaf98be4202ebb500d1a7f0cce6e212a527149c4f9ba4fb0ff1807b1d4e0d08c692f0622c1ceb5d66f029e195437
   languageName: node
   linkType: hard
 
